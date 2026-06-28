@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/coverRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_cover_scene">
+
+    <View
+        android:id="@+id/ambientLight"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/cover_ambient_light"
+        app:layout_constraintBottom_toBottomOf="@+id/bookInteractiveZone"
+        app:layout_constraintEnd_toEndOf="@+id/bookInteractiveZone"
+        app:layout_constraintStart_toStartOf="@+id/bookInteractiveZone"
+        app:layout_constraintTop_toTopOf="@+id/bookInteractiveZone" />
+
+    <FrameLayout
+        android:id="@+id/bookInteractiveZone"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="8dp"
+        app:layout_constraintDimensionRatio="3:4"
+        app:layout_constraintBottom_toTopOf="@+id/coverActions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.26"
+        app:layout_constraintWidth_percent="0.78"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="14dp">
+
+        <LinearLayout
+            android:id="@+id/bookPageStack"
+            android:layout_width="38dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start|center_vertical"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="34dp"
+            android:paddingBottom="34dp">
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:alpha="0.55"
+                android:background="@drawable/book_page_stack" />
+
+            <View
+                android:layout_width="24dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="8dp"
+                android:alpha="0.72"
+                android:background="@drawable/book_page_stack" />
+
+            <View
+                android:layout_width="28dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/book_page_stack" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/bookSpine"
+            android:layout_width="14dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start|center_vertical"
+            android:layout_marginStart="30dp"
+            android:background="@drawable/book_spine_gradient" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/bookCard"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginStart="38dp"
+            android:layout_marginEnd="6dp"
+            app:cardCornerRadius="22dp"
+            app:cardElevation="18dp"
+            app:rippleColor="#33FFE5BD"
+            app:cardUseCompatPadding="true"
+            app:strokeColor="#33FFFFFF"
+            app:strokeWidth="1dp">
+
+            <FrameLayout
+                android:id="@+id/coverSurface"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/coverBgImg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:visibility="gone" />
+
+                <View
+                    android:id="@+id/coverTextureLayer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/book_cover_surface" />
+
+                <View
+                    android:id="@+id/coverImageScrim"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/cover_image_scrim" />
+
+                <TextView
+                    android:id="@+id/coverPageCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|start"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:background="#26000000"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="4dp"
+                    android:text="2 paginas"
+                    android:textColor="#F5E9D6"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/coverTitleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="28dp"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    android:text="Mi Cuaderno"
+                    android:textColor="#F0EBE0"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+            </FrameLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tapHintText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.88"
+        android:layout_marginTop="14dp"
+        android:text="Toca el libro para abrir"
+        android:textColor="#D5B27B"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bookInteractiveZone" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/openBookBtn"
+        style="@style/Widget.Material3.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="56dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="14dp"
+        android:text="Abrir cuaderno"
+        android:textSize="18sp"
+        app:cornerRadius="28dp"
+        app:icon="@android:drawable/ic_menu_agenda"
+        app:layout_constraintBottom_toTopOf="@+id/coverActions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tapHintText" />
+
+    <LinearLayout
+        android:id="@+id/coverActions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="18dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/editCoverBtn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="16dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_edit"
+            android:tint="#F0EBE0" />
+
+        <ImageButton
+            android:id="@+id/exportFromCoverBtn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_share"
+            android:tint="#F0EBE0" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

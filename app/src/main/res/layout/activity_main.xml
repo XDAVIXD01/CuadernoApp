@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2B2622">
+
+    <!-- Barra superior -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/backToCoverBtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_revert"
+            android:tint="#F0EBE0" />
+
+        <TextView
+            android:id="@+id/pageIndicator"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Páginas 1–2 de 2"
+            android:textColor="#F0EBE0"
+            android:textSize="14sp" />
+
+        <ImageButton
+            android:id="@+id/exportBtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_share"
+            android:tint="#F0EBE0" />
+
+    </LinearLayout>
+
+    <!-- Área de páginas (spread) -->
+    <LinearLayout
+        android:id="@+id/spreadArea"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/bottomBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topBar">
+
+        <!-- Página izquierda -->
+        <FrameLayout
+            android:id="@+id/pageLeft"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#F0EBE0"
+            android:padding="4dp">
+
+            <com.cuaderno.app.DrawingView
+                android:id="@+id/drawingViewLeft"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </FrameLayout>
+
+        <!-- Separador (lomo) -->
+        <View
+            android:layout_width="4dp"
+            android:layout_height="match_parent"
+            android:background="#3D2A1C" />
+
+        <!-- Página derecha -->
+        <FrameLayout
+            android:id="@+id/pageRight"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#F0EBE0"
+            android:padding="4dp">
+
+            <com.cuaderno.app.DrawingView
+                android:id="@+id/drawingViewRight"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <!-- Navegación lateral -->
+    <ImageButton
+        android:id="@+id/prevBtn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@android:drawable/ic_media_previous"
+        android:tint="#F0EBE0"
+        app:layout_constraintBottom_toBottomOf="@+id/spreadArea"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/spreadArea" />
+
+    <ImageButton
+        android:id="@+id/nextBtn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@android:drawable/ic_media_next"
+        android:tint="#F0EBE0"
+        app:layout_constraintBottom_toBottomOf="@+id/spreadArea"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/spreadArea" />
+
+    <!-- Barra inferior de herramientas -->
+    <HorizontalScrollView
+        android:id="@+id/bottomBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#1A1512"
+        android:paddingVertical="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="8dp">
+
+            <!-- Herramientas de dibujo -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/penBtn"
+                style="@style/Widget.Material3.Button.IconButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:checked="true"
+                android:text="🖊"
+                app:backgroundTint="#F0EBE0" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/markerBtn"
+                style="@style/Widget.Material3.Button.IconButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="🖍"
+                app:backgroundTint="#F0EBE0" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/eraserBtn"
+                style="@style/Widget.Material3.Button.IconButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="🧹"
+                app:backgroundTint="#F0EBE0" />
+
+            <View android:layout_width="1dp" android:layout_height="32dp" android:background="#3D2A1C" android:layout_marginHorizontal="8dp" />
+
+            <!-- Colores -->
+            <View
+                android:id="@+id/colorBlack"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/circle_black" />
+
+            <View
+                android:id="@+id/colorRed"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/circle_red" />
+
+            <View
+                android:id="@+id/colorBlue"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/circle_blue" />
+
+            <View
+                android:id="@+id/colorGreen"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/circle_green" />
+
+            <View
+                android:id="@+id/colorYellow"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/circle_yellow" />
+
+            <View android:layout_width="1dp" android:layout_height="32dp" android:background="#3D2A1C" android:layout_marginHorizontal="8dp" />
+
+            <!-- Slider tamaño -->
+            <com.google.android.material.slider.Slider
+                android:id="@+id/sizeSlider"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:value="3"
+                android:valueFrom="1"
+                android:valueTo="20"
+                app:thumbColor="#F0EBE0"
+                app:trackColorActive="#B8945F"
+                app:trackColorInactive="#3D2A1C" />
+
+            <View android:layout_width="1dp" android:layout_height="32dp" android:background="#3D2A1C" android:layout_marginHorizontal="8dp" />
+
+            <!-- Acciones -->
+            <ImageButton
+                android:id="@+id/undoBtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@android:drawable/ic_menu_revert"
+                android:tint="#F0EBE0" />
+
+            <ImageButton
+                android:id="@+id/clearBtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@android:drawable/ic_menu_delete"
+                android:tint="#F0EBE0" />
+
+            <ImageButton
+                android:id="@+id/pasteBtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@android:drawable/ic_menu_gallery"
+                android:tint="#F0EBE0" />
+
+            <ImageButton
+                android:id="@+id/cameraBtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@android:drawable/ic_menu_camera"
+                android:tint="#F0EBE0" />
+
+            <View android:layout_width="1dp" android:layout_height="32dp" android:background="#3D2A1C" android:layout_marginHorizontal="8dp" />
+
+            <ImageButton
+                android:id="@+id/addPageBtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@android:drawable/ic_input_add"
+                android:tint="#F0EBE0" />
+
+            <ImageButton
+                android:id="@+id/deletePageBtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@android:drawable/ic_delete"
+                android:tint="#F0EBE0" />
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

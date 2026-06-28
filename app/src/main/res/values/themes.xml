@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.CuadernoApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">#B8945F</item>
+        <item name="colorPrimaryVariant">#8A6C3F</item>
+        <item name="colorOnPrimary">#F0EBE0</item>
+        <item name="colorSecondary">#3D2A1C</item>
+        <item name="colorOnSecondary">#F0EBE0</item>
+        <item name="android:statusBarColor">#1A1512</item>
+        <item name="android:navigationBarColor">#1A1512</item>
+        <item name="android:windowBackground">@color/cover_bg</item>
+    </style>
+
+    <style name="Theme.CuadernoApp.Cover" parent="Theme.CuadernoApp">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="Theme.CuadernoApp.Dialog" parent="Theme.Material3.DayNight.Dialog">
+        <item name="colorPrimary">#B8945F</item>
+        <item name="colorOnPrimary">#F0EBE0</item>
+        <item name="android:windowBackground">#2B2622</item>
+    </style>
+
+    <style name="Theme.CuadernoApp.CoverEditor" parent="Theme.CuadernoApp">
+        <item name="android:windowBackground">@drawable/bg_cover_scene</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Activity</item>
+    </style>
+</resources>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="page_bg">#F0EBE0</color>
+    <color name="cover_bg">#2B2622</color>
+    <color name="text_light">#F0EBE0</color>
+    <color name="accent_gold">#B8945F</color>
+    <color name="spine_brown">#3D2A1C</color>
+    <color name="toolbar_bg">#1A1512</color>
+    <color name="black">#2B2622</color>
+    <color name="red">#8B3A3A</color>
+    <color name="blue">#2C4A6E</color>
+    <color name="green">#2D5A4A</color>
+    <color name="yellow">#B8945F</color>
+</resources>
