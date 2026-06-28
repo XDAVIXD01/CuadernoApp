@@ -8,7 +8,6 @@ import android.os.Bundle
 import android.view.Gravity
 import android.view.View
 import android.widget.*
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
@@ -40,7 +39,6 @@ class CoverEditorActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_cover_editor)
 
         repository = NotebookRepository(applicationContext)

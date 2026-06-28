@@ -11,9 +11,7 @@
         <item name="android:windowBackground">@color/cover_bg</item>
     </style>
 
-    <style name="Theme.CuadernoApp.Cover" parent="Theme.CuadernoApp">
-        <item name="android:windowFullscreen">true</item>
-    </style>
+    <style name="Theme.CuadernoApp.Cover" parent="Theme.CuadernoApp" />
 
     <style name="Theme.CuadernoApp.Dialog" parent="Theme.Material3.DayNight.Dialog">
         <item name="colorPrimary">#B8945F</item>
